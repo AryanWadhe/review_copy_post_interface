@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave a Review</title>
+
+<style>
+:root {
+    --primary: #2b6fd6;
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #1f2937;
+    --subtext: #4b5563;
+    --radius: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    padding: 16px;
+}
+
+/* Container */
+.container {
+    max-width: 420px;
+    margin: auto;
+}
+
+/* Card */
+.card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Text */
+.review-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--subtext);
+    margin-bottom: 14px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Small mobile polish */
+@media (max-width: 360px) {
+    .review-text {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+    <h2 style="text-align:center; font-size:16px; margin-bottom:14px; color:#1f2937;">
+    Share Your Experience
+</h2>
+<div class="container">
+
+    <div class="card">
+        <div class="review-text">
+            The hair fall control treatment worked really well for me. The staff was supportive and understood my concerns. I felt confident throughout the process and I'm happy with the results.
+        </div>
+        <button onclick="copyText(this)">Copy & Post</button>
+    </div>
+
+    <div class="card">
+        <div class="review-text">
+            The hair transplant process was smooth and well managed. The team guided me at every step and made me comfortable. The results look natural and satisfying.
+        </div>
+        <button onclick="copyText(this)">Copy & Post</button>
+    </div>
+
+    <div class="card">
+        <div class="review-text">
+            I was impressed with the care and professionalism. The team is skilled and genuinely supportive. I noticed visible improvement after a few sessions.
+        </div>
+        <button onclick="copyText(this)">Copy & Post</button>
+    </div>
+
+    <div class="card">
+        <div class="review-text">
+            PRP treatment showed good results for me. The staff explained everything clearly and handled the process very well. I’m seeing gradual improvement.
+        </div>
+        <button onclick="copyText(this)">Copy & Post</button>
+    </div>
+
+    <div class="card">
+        <div class="review-text">
+            The overall experience at the clinic was very pleasant. The staff was friendly and the environment was comfortable. I felt well taken care of.
+        </div>
+        <button onclick="copyText(this)">Copy & Post</button>
+    </div>
+
+</div>
+
+<script>
+function copyText(btn) {
+    const text = btn.previousElementSibling.innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+        window.location.href = "https://search.google.com/local/writereview?placeid=ChIJB5kuJGLHfKcR6dB3MfAY9g4";
+    });
+}
+</script>
+
+</body>
+</html>
