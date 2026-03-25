@@ -1,134 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leave a Review</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leave a Review</title>
+    <link rel="icon" type="image/jpeg" href="image.png" />
+    <style>
+      :root {
+        --primary: #2b6fd6;
+        --bg: #f5f6f8;
+        --card: #ffffff;
+        --text: #1f2937;
+        --subtext: #4b5563;
+        --radius: 14px;
+      }
 
-<style>
-:root {
-    --primary: #2b6fd6;
-    --bg: #f5f6f8;
-    --card: #ffffff;
-    --text: #1f2937;
-    --subtext: #4b5563;
-    --radius: 14px;
-}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        padding: 16px;
+      }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    padding: 16px;
-}
+      /* Container */
+      .container {
+        max-width: 420px;
+        margin: auto;
+      }
 
-/* Container */
-.container {
-    max-width: 420px;
-    margin: auto;
-}
+      /* Card */
+      .card {
+        background: var(--card);
+        padding: 16px;
+        border-radius: var(--radius);
+        margin-bottom: 14px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
 
-/* Card */
-.card {
-    background: var(--card);
-    padding: 16px;
-    border-radius: var(--radius);
-    margin-bottom: 14px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
+      /* Text */
+      .review-text {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--subtext);
+        margin-bottom: 14px;
+      }
 
-/* Text */
-.review-text {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--subtext);
-    margin-bottom: 14px;
-}
+      /* Button */
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        background: var(--primary);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        background-color: #009e80;
+      }
 
-/* Button */
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background: var(--primary);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-}
+      button:active {
+        transform: scale(0.98);
+      }
 
-button:active {
-    transform: scale(0.98);
-}
+      /* Small mobile polish */
+      @media (max-width: 360px) {
+        .review-text {
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
 
-/* Small mobile polish */
-@media (max-width: 360px) {
-    .review-text {
+  <body>
+    <h2
+      style="
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 14px;
+        color: #1f2937;
+      "
+    >
+      Share Your Experience
+    </h2>
+
+    <div class="container" id="reviewsContainer"></div>
+
+    <script>
+      const reviewList = [
+        "I visited for skin consultation and I really liked how Dr. Vivek Rathod explained everything in detail. I started my skin treatment and I am seeing good improvement.",
+        "I took chemical peel sessions for acne and pigmentation and my skin has improved a lot. Staff is very polite and professional.",
+        "Very good clinic for female skin treatments. I felt very comfortable during the treatment.",
+        "I had acne and acne marks and doctor suggested a proper treatment plan instead of random treatments. Results are very good.",
+        "I did laser treatment for pigmentation and I can see visible difference now. Thank you doctor.",
+        "Clinic is very clean and staff is very cooperative. Good place for skin and hair treatments.",
+        "Doctor understands skin concerns very well and suggests the right treatment according to skin type.",
+        "I took hydrafacial and peel treatment and my skin feels much better and brighter now.",
+        "Very genuine clinic for skin treatments. They explain everything properly before starting treatment.",
+        "I would highly recommend this clinic for any skin related issues.",
+        "I was suffering from acne since long time, after treatment here my acne is much better.",
+        "Very happy with my skin treatment results. Doctor and staff both are very supportive.",
+        "I visited Best Hair Transplant and Cosmetic Centre for hair fall and skin consultation. Dr. Vivek Rathod explained everything in detail and suggested the right treatment instead of directly pushing for transplant. Very genuine doctor and helpful staff.",
+        "I got my hair transplant done here and my experience was very good. The clinic is clean, staff is supportive and doctor personally monitors the procedure. Also took PRP and hair treatment from here. Seeing good improvement.",
+        "I came for skin treatment and hair fall treatment. Doctor listened to my concerns patiently and started the treatment step by step. I am seeing good improvement in both skin and hair.",
+        "Very professional clinic for hair transplant and advanced skin treatments. Dr. Vivek Rathod gives honest opinion and realistic expectations. Highly recommended.",
+        "I was taking PRP and GFC treatment for hair fall here and my hair fall reduced a lot. Staff is very polite and follow up is very good.",
+        "My hair transplant result is very natural. Doctor designed the hairline perfectly according to my face. Thank you to the whole team.",
+        "I visited many clinics but I found this clinic very genuine. They explain all advanced treatments like PRP, GFC, mesotherapy, transplant properly.",
+        "Clinic is very hygienic and well maintained. Staff and doctor both are very cooperative. Good place for hair and skin treatments.",
+        "I took laser treatment and skin consultation here. Doctor is very knowledgeable and suggests proper treatment according to skin type.",
+        "Very good experience for hair transplant. Procedure was smooth and post treatment care was explained very nicely.",
+        "I am doing my hair fall treatment here from last few months and I can see baby hair growth now. Very satisfied with the treatment.",
+        "Doctor and staff both are very friendly. They make patient very comfortable and explain every step of treatment.",
+        "I liked that doctor gives proper time in consultation and explains all treatment options.",
+        "One of the best clinics for hair transplant, PRP, GFC and skin treatments in Pune.",
+        "My skin treatment results are very good. I took chemical peel and laser sessions and my skin has improved a lot.",
+        "Very honest and ethical clinic. They will tell you if you really need transplant or only medical treatment is enough.",
+        "Post transplant follow up and PRP sessions are done very properly here.",
+        "I am very happy with my hair density and hairline after transplant. Results are very natural.",
+        "Clinic atmosphere is very positive and staff is always ready to help.",
+        "I took consultation for hair fall and dandruff treatment and got very good results after treatment.",
+        "Advanced treatments and latest machines are available here for hair and skin.",
+        "Doctor is very calm, experienced and listens to patient problems carefully.",
+        "I would recommend this clinic for anyone looking for hair transplant, hair treatment or skin treatment.",
+        "Very good management, clean operation theatre and trained staff.",
+        "Overall very good experience with Best Hair Transplant and Cosmetic Centre. Thank you Dr. Vivek Rathod and team for the results and care.",
+      ];
+
+      // Shuffle array
+      function shuffleArray(array) {
+        return array.sort(() => 0.5 - Math.random());
+      }
+
+      // Render 5 random reviews
+      function renderReviews() {
+        const container = document.getElementById("reviewsContainer");
+        container.innerHTML = "";
+
+        const selected = shuffleArray([...reviewList]).slice(0, 5);
+
+        selected.forEach((text) => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          card.innerHTML = `
+            <div class="review-text">${text}</div>
+            <button onclick="copyText(this)">Copy & Post</button>
+        `;
+
+          container.appendChild(card);
+        });
+      }
+
+      function copyText(btn) {
+        const text = btn.previousElementSibling.innerText;
+
+        navigator.clipboard.writeText(text).then(() => {
+          btn.innerText = "Copied ✓";
+          setTimeout(() => {
+            window.location.href =
+              "https://search.google.com/local/writereview?placeid=ChIJB5kuJGLHfKcR6dB3MfAY9g4";
+          }, 600);
+        });
+      }
+
+      // Load reviews on page load
+      renderReviews();
+    </script>
+
+    <footer
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #f3f4f6;
+        border-top: 1px solid #e5e7eb;
+        padding: 12px;
         font-size: 13px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-    <h2 style="text-align:center; font-size:16px; margin-bottom:14px; color:#1f2937;">
-    Share Your Experience
-</h2>
-<div class="container">
-
-    <div class="card">
-        <div class="review-text">
-            The hair fall control treatment worked really well for me. The staff was supportive and understood my concerns. I felt confident throughout the process and I'm happy with the results.
-        </div>
-        <button onclick="copyText(this)">Copy & Post</button>
-    </div>
-
-    <div class="card">
-        <div class="review-text">
-            The hair transplant process was smooth and well managed. The team guided me at every step and made me comfortable. The results look natural and satisfying.
-        </div>
-        <button onclick="copyText(this)">Copy & Post</button>
-    </div>
-
-    <div class="card">
-        <div class="review-text">
-            I was impressed with the care and professionalism. The team is skilled and genuinely supportive. I noticed visible improvement after a few sessions.
-        </div>
-        <button onclick="copyText(this)">Copy & Post</button>
-    </div>
-
-    <div class="card">
-        <div class="review-text">
-            PRP treatment showed good results for me. The staff explained everything clearly and handled the process very well. I’m seeing gradual improvement.
-        </div>
-        <button onclick="copyText(this)">Copy & Post</button>
-    </div>
-
-    <div class="card">
-        <div class="review-text">
-            The overall experience at the clinic was very pleasant. The staff was friendly and the environment was comfortable. I felt well taken care of.
-        </div>
-        <button onclick="copyText(this)">Copy & Post</button>
-    </div>
-
-</div>
-
-<script>
-function copyText(btn) {
-    const text = btn.previousElementSibling.innerText;
-
-    navigator.clipboard.writeText(text).then(() => {
-        window.location.href = "https://search.google.com/local/writereview?placeid=ChIJB5kuJGLHfKcR6dB3MfAY9g4";
-    });
-}
-</script>
-
-</body>
+        color: #6b7280;
+      "
+    >
+      Developed by <a href="https://aryanwadhe.vercel.app/" target="_blank" style="
+        color: #2b6fd6;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 4px;
+    ">
+         Aryan Wadhe
+    </footer>
+  </body>
 </html>
